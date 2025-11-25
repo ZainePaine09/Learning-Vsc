@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amazon Cart Exercise</title>
+  <link rel="stylesheet" href="/Styles/Js.css">
+</head>
+<body>
+  <h2>Amazon Cart Challenge</h2>
+  <p>I Dont Understand Any of these Challenges but I do want to learn.</p>
+  <div class="cart-box" id="cart"></div>
+  <script>
+  let basketballPrice = 20.95;
+  let tshirtPrice = 7.99;
+  let shipping = 4.99;
+
+  let basketballQty = 2;
+  let tshirtQty = 2;
+
+  // Items total
+  let itemsTotal = (basketballPrice * basketballQty) + (tshirtPrice * tshirtQty);
+
+  // Shipping
+  let shippingTotal = 0;
+  if (basketballQty > 0) shippingTotal += shipping;
+  if (tshirtQty > 0) shippingTotal += shipping;
+
+  // Totals
+  let totalBeforeTax = itemsTotal + shippingTotal;
+  let estimatedTax = totalBeforeTax * 0.1;  // 10%
+  let orderTotal = totalBeforeTax + estimatedTax;
+
+  let cartBox = document.getElementById("cart");
+
+  //Items line
+  cartBox.innerHTML += `<p>Items (${basketballQty + tshirtQty}): $${itemsTotal.toFixed(2)}</p>`;
+
+  //Shipping line
+  cartBox.innerHTML += `<p>Shipping & handling: $${shippingTotal.toFixed(2)}</p>`;
+
+  //Total before we give the tax on Politicians
+  cartBox.innerHTML += `<p>Total before tax: $${totalBeforeTax.toFixed(2)}</p>`;
+
+  //Estimated tax Congresshit that congresshit took
+  cartBox.innerHTML += `<p>Estimated tax (10%): $${estimatedTax.toFixed(2)}</p>`;
+
+  //Order total
+  cartBox.innerHTML += `<h3>Order total: $${orderTotal.toFixed(2)}</h3>`;
+</script>
+
+</body>
+</html>

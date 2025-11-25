@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/Styles/JsChallenge3.css">
+</head>
+<body>
+
+  <div class="cart-box">
+    <h3>Order Summary</h3>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    // Prices
+    const basketballPrice = 20.95;
+    const tshirtPrice = 7.99;
+    const shippingCost = 4.99;
+
+    // Quantities
+    const basketballQty = 2;
+    const tshirtQty = 2;
+
+    // Item totals
+    const basketballTotal = basketballQty * basketballPrice;
+    const tshirtTotal = tshirtQty * tshirtPrice;
+
+    //  items
+    const itemsTotal = basketballTotal + tshirtTotal;
+
+    // Shipping 
+    const shippingTotal = (basketballQty + tshirtQty) * shippingCost;
+
+    //  tax
+    const totalBeforeTax = itemsTotal + shippingTotal;
+
+    //  tax
+    const estimatedTax = Math.round(totalBeforeTax * 0.10 * 100) / 100;
+
+    
+    const line1 = `Items (${basketballQty + tshirtQty}): $${itemsTotal.toFixed(2)}`;
+    const line2 = `Shipping & handling: $${shippingTotal.toFixed(2)}`;
+    const line3 = `Total before tax: $${totalBeforeTax.toFixed(2)}`;
+    const line4 = `Estimated tax (10%): $${estimatedTax.toFixed(2)}`;
+
+    
+    document.getElementById("output").textContent =
+      line1 + "\n" +
+      line2 + "\n" +
+      line3 + "\n" +
+      line4;
+  </script>
+
+</body>
+</html>
